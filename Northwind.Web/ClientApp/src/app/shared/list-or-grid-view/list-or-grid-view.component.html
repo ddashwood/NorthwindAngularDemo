@@ -1,0 +1,33 @@
+<p *ngIf="!items; else showItems">
+  Loading...
+</p>
+
+<ng-template #showItems>
+  <div class="row mr-2">
+    <div class="ml-auto">
+      <ng-template *ngTemplateOutlet="optionsTemplate"></ng-template>
+      Grid? <input type="checkbox" [(ngModel)]="grid" />
+    </div>
+  </div>
+
+  <div *ngIf="items.length > 0; else noData">
+    <div *ngIf="grid">
+      <div class="row">
+        <div *ngFor="let item of items" class="col-md-4">
+          <ng-template *ngTemplateOutlet="gridItemTemplate; context : {item : item}"></ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!grid">
+      <div *ngFor="let item of items">
+        <ng-template *ngTemplateOutlet="listItemTemplate; context : {item : item}"></ng-template>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #noData>
+  <p>No data to show</p>
+</ng-template>
