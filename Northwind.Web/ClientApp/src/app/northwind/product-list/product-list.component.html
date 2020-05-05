@@ -4,8 +4,8 @@
 
 <list-or-grid-view [items]="products">
   <ng-template #showOptions>
-    Page: <input type="number" [(ngModel)]="page" (ngModelChange)="load()" />
-    Page size: <input type="number" [(ngModel)]="pageSize" (ngModelChange)="load()" />
+    <page-selector [page]="page" [maxPage]="maxPage" (onPageChange)="changePage($event)"
+                   [pageSize]="10" (onPageSizeChange)="changePageSize($event)"></page-selector>
   </ng-template>
 
   <ng-template #showListItem let-item="item">

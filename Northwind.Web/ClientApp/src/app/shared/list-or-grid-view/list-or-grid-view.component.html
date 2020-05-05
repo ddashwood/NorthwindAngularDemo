@@ -3,10 +3,19 @@
 </p>
 
 <ng-template #showItems>
-  <div class="row mr-2">
+  <div class="row mx-2">
+    <div class="mr-auto">
+      <div class="btn-group ml-2" role="group">
+        <button class="btn btn-outline-secondary" (click)="setGrid($event, false)">
+          <span class="oi oi-list"></span> List
+        </button>
+        <button class="btn btn-outline-secondary" (click)="setGrid($event, true)">
+          <span class="oi oi-grid-four-up"></span> Grid
+        </button>
+      </div>
+    </div>
     <div class="ml-auto">
       <ng-template *ngTemplateOutlet="optionsTemplate"></ng-template>
-      Grid? <input type="checkbox" [(ngModel)]="grid" />
     </div>
   </div>
 
@@ -25,6 +34,11 @@
       </div>
     </div>
 
+    <div class="row mr-2">
+      <div class="ml-auto">
+        <ng-template *ngTemplateOutlet="optionsTemplate"></ng-template>
+      </div>
+    </div>
   </div>
 </ng-template>
 

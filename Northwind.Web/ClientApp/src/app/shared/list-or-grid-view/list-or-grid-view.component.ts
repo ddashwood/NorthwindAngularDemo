@@ -5,10 +5,10 @@ import { Component, Input, TemplateRef, ContentChild } from '@angular/core';
   templateUrl: './list-or-grid-view.component.html',
   styleUrls: ['./list-or-grid-view.component.css']
 })
-export class ListOrGridViewComponent  {
+export class ListOrGridViewComponent {
 
   constructor() { }
-  
+
   @Input()
   public items: object[];
 
@@ -23,4 +23,9 @@ export class ListOrGridViewComponent  {
   optionsTemplate: TemplateRef<any>;
 
   public grid: boolean;
+
+  setGrid(event: MouseEvent, grid: boolean): void {
+    this.grid = grid;
+    (<HTMLButtonElement>event.target).blur();
+  }
 }

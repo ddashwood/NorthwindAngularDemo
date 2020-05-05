@@ -1,0 +1,30 @@
+<ng-template #pageButton let-page="page" let-selected="selected">
+  <button class="{{selected ? 'btn btn-sm btn-secondary disabled' : 'btn btn-sm btn-outline-secondary'}}" (click)="setPage(page)">
+    {{page}}
+  </button>
+</ng-template>
+
+<ng-template #empty></ng-template>
+
+Page:
+<div class="btn-group">
+  <!-- First page - only show if current page is >=2 otherwise it's included in current group of pages -->
+  <ng-template *ngTemplateOutlet="page < 3 ? empty : pageButton; context : { page : 1 }"></ng-template>
+  <span *ngIf="page > 3" class="mx-1">. . .</span>
+
+  <!-- Current group of pages -->
+  <ng-template *ngTemplateOutlet="page == 1 ? empty : pageButton; context : { page : page - 1 }"></ng-template>
+  <ng-template *ngTemplateOutlet="pageButton; context : { page : page, selected : true }"></ng-template>
+  <ng-template *ngTemplateOutlet="page == maxPage ? empty : pageButton; context : { page : page + 1 }"></ng-template>
+
+  <!-- Final page -->
+  <span *ngIf="page < maxPage - 2" class="mx-1">. . .</span>
+  <ng-template *ngTemplateOutlet="page > maxPage - 2 ? empty : pageButton; context : { page : maxPage }"></ng-template>
+</div>
+
+Page size:
+<select [(ngModel)]="pageSize" (ngModelChange)="setPageSize()">
+  <option value="10">10 items</option>
+  <option value="20">20 items</option>
+  <option value="50">50 items</option>
+</select>
