@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductsDataService } from './products-data.service';
+import { ProductDataService } from './product-data.service';
+import { CustomerDataService } from './customer-data.service';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ],
-  providers: [ProductsDataService]
+  providers: [ProductDataService, CustomerDataService]
 })
 export class DataModule {
 }

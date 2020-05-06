@@ -1,23 +1,23 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ProductDataService, Product } from '../../data/product-data.service';
+import { CustomerDataService, Customer } from '../../data/customer-data.service';
 import { PageData } from '../../../ui-shared/page-selector/page-selector.component';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: 'app-customer-list',
+  templateUrl: './customer-list.component.html',
+  styleUrls: ['./customer-list.component.css']
 })
-export class ProductListComponent implements OnInit {
-  public products: Product[];
+export class CustomerListComponent implements OnInit {
+  public customers: Customer[];
 
-  constructor(private data : ProductDataService) {
+  constructor(private data: CustomerDataService) {
   }
 
   ngOnInit(): void {
     this.load();
   }
 
-  public changePage(page: number) : void {
+  public changePage(page: number): void {
     this.page = page;
     this.load();
   }
@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
 
   public load(): void {
     this.data.loadAll(this.page, this.pageSize, results => {
-      this.products = results.data;
+      this.customers = results.data;
       this.maxPage = results.maxPage;
     });
   }

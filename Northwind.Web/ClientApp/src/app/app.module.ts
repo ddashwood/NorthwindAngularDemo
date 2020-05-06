@@ -13,6 +13,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { ProductListComponent } from './northwind/ui/product-list/product-list.component';
 import { NorthwindModule } from './northwind/northwind.module';
 import { ProductDetailsComponent } from './northwind/ui/product-details/product-details.component';
+import { CustomerListComponent } from './northwind/ui/customer-list/customer-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductDetailsComponent } from './northwind/ui/product-details/product-
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', component: ProductDetailsComponent }
+      { path: 'products/:id', component: ProductDetailsComponent },
+      { path: 'customers', component: CustomerListComponent}
     ])
   ],
   providers: [

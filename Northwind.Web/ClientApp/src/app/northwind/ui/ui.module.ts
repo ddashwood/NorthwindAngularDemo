@@ -6,10 +6,11 @@ import { DataModule } from '../data/data.module';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RouterModule } from '@angular/router';
+import { CustomerListComponent } from './customer-list/customer-list.component';
 
 
 @NgModule({
-  declarations: [ProductListComponent, ProductDetailsComponent],
+  declarations: [ProductListComponent, ProductDetailsComponent, CustomerListComponent],
   imports: [
     CommonModule,
     UiSharedModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ProductsDataService, Product } from '../../data/products-data.service';
+import { ProductDataService, Product } from '../../data/product-data.service';
 
 @Component({
   selector: 'app-product-details',
@@ -10,7 +10,7 @@ import { ProductsDataService, Product } from '../../data/products-data.service';
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
 
-  constructor(private route: ActivatedRoute, private data: ProductsDataService) { }
+  constructor(private route: ActivatedRoute, private data: ProductDataService) { }
 
   id: number;
   product: Product;
