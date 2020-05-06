@@ -10,7 +10,7 @@ using Northwind.Web.DTOs;
 
 namespace Northwind.Web.Controllers
 {
-    public class ProductController : PagedControllerBase<ProductListDto>
+    public class ProductController : PagedControllerBase<ProductDto, int>
     {
         private readonly NorthwindContext context;
 
@@ -19,13 +19,24 @@ namespace Northwind.Web.Controllers
             this.context = context;
         }
 
-        protected override IQueryable<ProductListDto> GetData()
+        protected override IQueryable<ProductDto> GetData()
         {
-            return context.Products.Select(p => new ProductListDto
+            return context.Products.Include(p => p.Supplier)
+                                   .Include(p => p.Category)
+                                   .Select(p => new ProductDto
             {
-                ProductId = p.ProductId,
+                Id = p.ProductId,
                 ProductName = p.ProductName,
-                UnitPrice = p.UnitPrice
+                SupplierId = p.SupplierId,
+                SupplierName = p.Supplier.CompanyName,
+                CategoryId = p.CategoryId,
+                CategoryName = p.Category.CategoryName,
+                QuantityPerUnit = p.QuantityPerUnit,
+                UnitPrice = p.UnitPrice,
+                UnitsInStock = p.UnitsInStock,
+                UnitsOnOrder = p.UnitsOnOrder,
+                ReorderLevel = p.ReorderLevel,
+                Discontinued = p.Discontinued
             });
         }
     }

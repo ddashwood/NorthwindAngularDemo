@@ -11,7 +11,9 @@ namespace Northwind.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public abstract class PagedControllerBase<TDto> : ControllerBase
+    public abstract class PagedControllerBase<TDto, TKey> : ControllerBase
+                    where TDto : DtoBase<TKey>
+                    where TKey : IEquatable<TKey>
     {
         protected abstract IQueryable<TDto> GetData();
 
@@ -40,6 +42,12 @@ namespace Northwind.Web.Controllers
             };
 
             return results;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<TDto> Get(TKey id)
+        {
+            return await GetData().SingleAsync(i => i.Id.Equals(id));
         }
     }
 }

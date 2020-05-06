@@ -1,0 +1,24 @@
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<div *ngIf="product; else loading">
+  <div class="row">
+    <div class="card p-3 m-2 w-25">
+      <h4 class="d-flex justify-content-center">{{product.productName}}</h4>
+    </div>
+
+    <div class="mt-4">
+      <p><strong>Price:</strong> {{product.unitPrice | currency}} per {{product.quantityPerUnit}}</p>
+      <p>Supplied by {{product.supplierName}}</p>
+    </div>
+  </div>
+
+  <!--<div class="row">-->
+    <p *ngIf="product.discontinued" class="text-danger">Discontinued</p>
+    <p>{{product.categoryName}}</p>
+    <div>Units in stock: {{product.unitsInStock}}</div>
+    <div>Units on order: {{product.unitsOnOrder}}</div>
+    <div>Re-order level: {{product.reorderLevel}}</div>
+  <!--</div>-->
+</div>

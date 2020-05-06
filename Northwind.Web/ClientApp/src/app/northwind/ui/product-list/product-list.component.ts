@@ -29,7 +29,7 @@ export class ProductListComponent implements OnInit {
   }
 
   public load(): void {
-    this.data.load(this.page, this.pageSize, results => {
+    this.data.loadAll(this.page, this.pageSize, results => {
       this.products = results.data;
       this.maxPage = results.maxPage;
     });

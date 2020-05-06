@@ -12,6 +12,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { ProductListComponent } from './northwind/ui/product-list/product-list.component';
 import { NorthwindModule } from './northwind/northwind.module';
+import { ProductDetailsComponent } from './northwind/ui/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NorthwindModule } from './northwind/northwind.module';
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'products', component: ProductListComponent }
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/:id', component: ProductDetailsComponent }
     ])
   ],
   providers: [
