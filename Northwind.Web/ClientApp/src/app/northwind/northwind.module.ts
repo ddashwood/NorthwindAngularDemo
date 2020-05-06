@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductListComponent } from './product-list/product-list.component';
-import { SharedModule } from '../shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { UiModule } from './ui/ui.module';
 
 
 @NgModule({
-  declarations: [ProductListComponent],
+  declarations: [],
   imports: [
     CommonModule,
-    SharedModule,
-    FormsModule
+    UiModule
   ]
 })
 export class NorthwindModule { }

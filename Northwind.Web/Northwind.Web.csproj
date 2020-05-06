@@ -30,7 +30,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\northwind\data\PagedResults.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Northwind.Models\Northwind.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\northwind\data\PagedResults.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

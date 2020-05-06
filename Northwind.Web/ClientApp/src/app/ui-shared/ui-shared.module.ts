@@ -17,4 +17,4 @@ import { PageSelectorComponent } from './page-selector/page-selector.component';
     PageSelectorComponent
   ]
 })
-export class SharedModule { }
+export class UiSharedModule { }

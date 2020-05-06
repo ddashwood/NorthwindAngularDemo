@@ -8,7 +8,7 @@ import { NorthwindModule } from './northwind/northwind.module'
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { ProductListComponent } from './northwind/product-list/product-list.component';
+import { ProductListComponent } from './northwind/ui/product-list/product-list.component';
 
 @NgModule({
   declarations: [
