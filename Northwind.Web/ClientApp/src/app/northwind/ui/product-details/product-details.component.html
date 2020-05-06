@@ -14,11 +14,9 @@
     </div>
   </div>
 
-  <!--<div class="row">-->
-    <p *ngIf="product.discontinued" class="text-danger">Discontinued</p>
-    <p>{{product.categoryName}}</p>
-    <div>Units in stock: {{product.unitsInStock}}</div>
-    <div>Units on order: {{product.unitsOnOrder}}</div>
-    <div>Re-order level: {{product.reorderLevel}}</div>
-  <!--</div>-->
+  <p *ngIf="product.discontinued" class="text-danger">Discontinued</p>
+  <p>{{product.categoryName}}</p>
+  <div>Units in stock: {{product.unitsInStock}}</div>
+  <div>Units on order: {{product.unitsOnOrder}}</div>
+  <div>Re-order level: {{product.reorderLevel}}</div>
 </div>
