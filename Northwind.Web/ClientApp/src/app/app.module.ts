@@ -4,11 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { NorthwindModule } from './northwind/northwind.module'
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
+import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
+import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { ProductListComponent } from './northwind/ui/product-list/product-list.component';
+import { NorthwindModule } from './northwind/northwind.module';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,15 @@ import { ProductListComponent } from './northwind/ui/product-list/product-list.c
     HttpClientModule,
     FormsModule,
     NorthwindModule,
+    ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'products', component: ProductListComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
