@@ -1,31 +1,17 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductDataService, Product } from '../../data/product-data.service';
-import { PageData } from '../../../ui-shared/page-selector/page-selector.component';
+import { PagedListComponentBase } from '../../../ui-shared/page-list-component-base';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent extends PagedListComponentBase {
   public products: Product[];
 
-  constructor(private data : ProductDataService) {
-  }
-
-  ngOnInit(): void {
-    this.load();
-  }
-
-  public changePage(page: number) : void {
-    this.page = page;
-    this.load();
-  }
-
-  public changePageSize(pageData: PageData): void {
-    this.page = pageData.page;
-    this.pageSize = pageData.pageSize;
-    this.load();
+  constructor(private data: ProductDataService) {
+    super();
   }
 
   public load(): void {
@@ -34,10 +20,6 @@ export class ProductListComponent implements OnInit {
       this.maxPage = results.maxPage;
     });
   }
-
-  page: number = 1;
-  pageSize: number = 10;
-  maxPage: number;
 }
 
 

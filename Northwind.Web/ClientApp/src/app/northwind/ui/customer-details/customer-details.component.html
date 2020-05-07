@@ -1,0 +1,29 @@
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<div *ngIf="customer; else loading">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="mb-4">{{customer.companyName}}</h3>
+    </div>
+    <div class="col-md-4">
+      <h5>Address</h5>
+      <div>{{customer.address}}</div>
+      <div>{{customer.city}}</div>
+      <div>{{customer.region}}</div>
+      <div>{{customer.postalCode}}</div>
+      <div><strong>{{customer.country}}</strong></div>
+    </div>
+    <div class="col-md-4">
+      <h6>Contact Details</h6>
+      <div *ngIf="customer.phone">Phone: {{customer.phone}}</div>
+      <div *ngIf="customer.fax">Fax: {{customer.fax}}</div>
+    </div>
+    <div class="col-md-4">
+      <h6>Our Contact</h6>
+      <div>{{customer.contactName}}</div>
+      <div>({{customer.contactTitle}})</div>
+    </div>
+  </div>
+</div>

@@ -14,7 +14,7 @@ export class DataServiceBase<T> {
     }, error => console.error(error));
   }
 
-  public loadSingle(id: number, complete: (item: T) => void): void {
+  public loadSingle(id: number | string, complete: (item: T) => void): void {
     let url = this.baseUrl + `api/${this.apiController}/${encodeURIComponent(id)}`
 
     this.http.get<T>(url).subscribe(result => {

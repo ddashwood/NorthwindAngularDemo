@@ -14,3 +14,13 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+/* Make cards which are also links pop out when hovered over */
+
+.card {
+  transition: 0.2s;
+}
+
+  .card.card-hoverlink:hover {
+    transform: scaleX(1.04) scaleY(1.1);
+  }

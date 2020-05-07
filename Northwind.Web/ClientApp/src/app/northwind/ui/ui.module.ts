@@ -7,10 +7,11 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RouterModule } from '@angular/router';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 
 
 @NgModule({
-  declarations: [ProductListComponent, ProductDetailsComponent, CustomerListComponent],
+  declarations: [ProductListComponent, ProductDetailsComponent, CustomerListComponent, CustomerDetailsComponent],
   imports: [
     CommonModule,
     UiSharedModule,

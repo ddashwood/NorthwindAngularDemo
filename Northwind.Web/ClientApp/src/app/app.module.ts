@@ -14,6 +14,7 @@ import { ProductListComponent } from './northwind/ui/product-list/product-list.c
 import { NorthwindModule } from './northwind/northwind.module';
 import { ProductDetailsComponent } from './northwind/ui/product-details/product-details.component';
 import { CustomerListComponent } from './northwind/ui/customer-list/customer-list.component';
+import { CustomerDetailsComponent } from './northwind/ui/customer-details/customer-details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CustomerListComponent } from './northwind/ui/customer-list/customer-lis
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'products', component: ProductListComponent },
       { path: 'products/:id', component: ProductDetailsComponent },
-      { path: 'customers', component: CustomerListComponent}
+      { path: 'customers', component: CustomerListComponent },
+      { path: 'customers/:id', component: CustomerDetailsComponent }
     ])
   ],
   providers: [
