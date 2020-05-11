@@ -8,6 +8,9 @@ import { PagedListComponentBase } from '../../../ui-shared/page-list-component-b
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent extends PagedListComponentBase {
+  static routePath = 'customers';
+  routePath = '/' + CustomerListComponent.routePath;
+
   public customers: Customer[];
 
   constructor(private data: CustomerDataService) {

@@ -8,7 +8,7 @@
 
   <ng-template #showListItem let-item="item">
     <div class="card card-hoverlink card-body m-2 h-75">
-      <a class="stretched-link" [routerLink]="['/products', item.id]"></a>
+      <a class="stretched-link" [routerLink]="[routePath, item.id]"></a>
 
       <div class="row">
         <div class="col-md-4">
@@ -29,7 +29,7 @@
 
   <ng-template #showGridItem let-item="item">
     <div class="card card-hoverlink card-body m-2 h-75">
-      <a class="stretched-link" [routerLink]="['/products', item.id]"></a>
+      <a class="stretched-link" [routerLink]="[routePath, item.id]"></a>
 
       <h5>{{item.productName}}</h5>
       <p>Price per unit: {{item.unitPrice | currency}}</p>

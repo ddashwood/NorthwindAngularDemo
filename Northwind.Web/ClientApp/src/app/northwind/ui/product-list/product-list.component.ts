@@ -8,6 +8,9 @@ import { PagedListComponentBase } from '../../../ui-shared/page-list-component-b
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent extends PagedListComponentBase {
+  static routePath = 'products';
+  routePath = '/' + ProductListComponent.routePath;
+
   public products: Product[];
 
   constructor(private data: ProductDataService) {

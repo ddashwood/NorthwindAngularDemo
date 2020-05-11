@@ -10,11 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
-import { ProductListComponent } from './northwind/ui/product-list/product-list.component';
 import { NorthwindModule } from './northwind/northwind.module';
-import { ProductDetailsComponent } from './northwind/ui/product-details/product-details.component';
-import { CustomerListComponent } from './northwind/ui/customer-list/customer-list.component';
-import { CustomerDetailsComponent } from './northwind/ui/customer-details/customer-details.component';
+import { NorthwindRouterModule } from './northwind-router.module';
 
 @NgModule({
   declarations: [
@@ -28,13 +25,7 @@ import { CustomerDetailsComponent } from './northwind/ui/customer-details/custom
     FormsModule,
     NorthwindModule,
     ApiAuthorizationModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', component: ProductDetailsComponent },
-      { path: 'customers', component: CustomerListComponent },
-      { path: 'customers/:id', component: CustomerDetailsComponent }
-    ])
+    NorthwindRouterModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
