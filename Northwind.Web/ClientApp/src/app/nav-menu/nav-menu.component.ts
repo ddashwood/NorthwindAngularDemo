@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { northwindRoutesNames } from '../northwind-routes.names';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
+  routes = northwindRoutesNames;
 
   collapse() {
     this.isExpanded = false;

@@ -6,6 +6,7 @@ import { ProductListComponent } from './northwind/ui/product-list/product-list.c
 import { ProductDetailsComponent } from './northwind/ui/product-details/product-details.component';
 import { CustomerListComponent } from './northwind/ui/customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './northwind/ui/customer-details/customer-details.component';
+import { northwindRoutesNames } from './northwind-routes.names';
 
 
 
@@ -15,10 +16,10 @@ import { CustomerDetailsComponent } from './northwind/ui/customer-details/custom
     CommonModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: ProductListComponent.routePath, component: ProductListComponent },
-      { path: ProductListComponent.routePath + '/:id', component: ProductDetailsComponent },
-      { path: CustomerListComponent.routePath, component: CustomerListComponent },
-      { path: CustomerListComponent.routePath + '/:id', component: CustomerDetailsComponent }
+      { path: northwindRoutesNames.PRODUCTS , component: ProductListComponent },
+      { path: northwindRoutesNames.PRODUCTS + '/:id', component: ProductDetailsComponent },
+      { path: northwindRoutesNames.CUSTOMERS, component: CustomerListComponent },
+      { path: northwindRoutesNames.CUSTOMERS + '/:id', component: CustomerDetailsComponent }
     ])
   ],
   exports: [RouterModule]

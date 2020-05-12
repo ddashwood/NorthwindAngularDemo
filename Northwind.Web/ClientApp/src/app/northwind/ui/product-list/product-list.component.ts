@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductDataService, Product } from '../../data/product-data.service';
 import { PagedListComponentBase } from '../../../ui-shared/page-list-component-base';
+import { northwindRoutesNames } from '../../../northwind-routes.names';
 
 @Component({
   selector: 'app-product-list',
@@ -8,8 +9,7 @@ import { PagedListComponentBase } from '../../../ui-shared/page-list-component-b
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent extends PagedListComponentBase {
-  static routePath = 'products';
-  routePath = '/' + ProductListComponent.routePath;
+  routePath = '/' + northwindRoutesNames.PRODUCTS;
 
   public products: Product[];
 

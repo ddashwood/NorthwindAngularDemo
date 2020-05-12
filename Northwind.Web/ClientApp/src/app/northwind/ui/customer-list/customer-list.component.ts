@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CustomerDataService, Customer } from '../../data/customer-data.service';
 import { PagedListComponentBase } from '../../../ui-shared/page-list-component-base';
+import { northwindRoutesNames } from '../../../northwind-routes.names';
 
 @Component({
   selector: 'app-customer-list',
@@ -8,8 +9,7 @@ import { PagedListComponentBase } from '../../../ui-shared/page-list-component-b
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent extends PagedListComponentBase {
-  static routePath = 'customers';
-  routePath = '/' + CustomerListComponent.routePath;
+  routePath = '/' + northwindRoutesNames.CUSTOMERS;
 
   public customers: Customer[];
 
