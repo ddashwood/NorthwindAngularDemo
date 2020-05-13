@@ -2,7 +2,7 @@
   <p>Loading...</p>
 </ng-template>
 
-<div *ngIf="customer; else loading">
+<div *ngIf="(customer$ | async) as customer; else loading">
   <div class="row">
     <div class="col-md-12">
       <h3 class="mb-4">{{customer.companyName}}</h3>

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { ProductDataService, Product } from '../../data/product-data.service';
 
 @Component({
@@ -13,13 +13,13 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private data: ProductDataService) { }
 
   id: number;
-  product: Product;
+  product$: Observable<Product>;
   paramsSubscription: Subscription;
 
   ngOnInit() {
     this.paramsSubscription = this.route.params.subscribe(params => {
       this.id = params['id'];
-      this.data.loadSingle(this.id, product => this.product = product);
+      this.product$ = this.data.loadSingle(this.id);
     });
   }
 

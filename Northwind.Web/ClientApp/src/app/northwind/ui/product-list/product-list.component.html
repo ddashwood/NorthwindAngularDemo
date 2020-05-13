@@ -1,6 +1,6 @@
 <h4>Here is our product list:</h4>
 
-<list-or-grid-view [items]="products">
+<list-or-grid-view [items]="products$ | async">
   <ng-template #showOptions>
     <page-selector [page]="page" [maxPage]="maxPage" (onPageChange)="changePage($event)"
                    [pageSize]="10" (onPageSizeChange)="changePageSize($event)"></page-selector>

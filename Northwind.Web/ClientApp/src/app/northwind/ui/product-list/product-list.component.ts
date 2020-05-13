@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ProductDataService, Product } from '../../data/product-data.service';
-import { PagedListComponentBase } from '../../../ui-shared/page-list-component-base';
+import { PagedListComponentBase } from '../../../ui-shared/paged-list-component-base';
 import { northwindRoutesNames } from '../../../northwind-routes.names';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-list',
@@ -11,17 +13,17 @@ import { northwindRoutesNames } from '../../../northwind-routes.names';
 export class ProductListComponent extends PagedListComponentBase {
   routePath = '/' + northwindRoutesNames.PRODUCTS;
 
-  public products: Product[];
+  public products$: Observable<Product[]>;
 
   constructor(private data: ProductDataService) {
     super();
   }
 
   public load(): void {
-    this.data.loadAll(this.page, this.pageSize, results => {
-      this.products = results.data;
-      this.maxPage = results.maxPage;
-    });
+    let results = this.data.loadAll(this.page, this.pageSize);
+
+    this.products$ = results.pipe(map(r => r.data));
+    results.subscribe(r => this.maxPage = r.maxPage);
   }
 }
 

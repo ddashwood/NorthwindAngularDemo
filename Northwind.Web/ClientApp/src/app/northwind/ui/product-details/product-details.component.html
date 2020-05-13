@@ -2,7 +2,7 @@
   <p>Loading...</p>
 </ng-template>
 
-<div *ngIf="product; else loading">
+<div *ngIf="(product$ | async) as product; else loading">
   <div class="row">
     <div class="card p-3 m-2 w-25">
       <h4 class="d-flex justify-content-center">{{product.productName}}</h4>
